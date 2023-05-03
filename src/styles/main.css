@@ -9,3 +9,7 @@
 .linha-vertical {
   @apply border border-e border-border;
 }
+
+.link {
+  @apply hover:transition-all hover:duration-300 hover:text-emphasis hover:shadow-inner hover:shadow-emphasis;
+}
