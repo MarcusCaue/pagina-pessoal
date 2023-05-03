@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom";
 import NavBar from "./NavBar";
 
 export default function Content() {
@@ -5,7 +6,7 @@ export default function Content() {
     <main>
       <NavBar />
       <section>
-        Conteúdo
+        <Outlet />
       </section>
     </main>
   )
