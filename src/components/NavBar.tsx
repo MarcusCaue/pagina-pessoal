@@ -1,21 +1,26 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function NavBar() {
+  const links = [
+    { name: "Repositórios", path: "/" }, 
+    { name: "Formação", path: "/formacao" }, 
+    { name: "Perfil", path: "/perfil" }, 
+    { name: "Experiências", path: "/experiencias" }, 
+    { name: "Contatos", path: "contatos" }
+  ]
+
   return (
     <nav className="flex flex-row justify-evenly border-b border-border">
-      <Link className="link" to="/repositorios">Repositórios</Link>
-      <div className="linha-vertical"></div>
-
-      <Link className="link" to="/formacao">Formação</Link>
-      <div className="linha-vertical"></div>
-
-      <Link className="link" to="/perfil">Perfil</Link>
-      <div className="linha-vertical"></div>
-
-      <Link className="link" to="/experiencias">Experiências</Link>
-      <div className="linha-vertical"></div>
-
-      <Link className="link" to="/contatos">Contatos</Link>
+      { 
+        links.map((link, key) => {
+          return (
+            <>
+              <NavLink className="link" to={link.path}> {link.name} </NavLink>
+              { key !== links.length - 1 ? <div className="linha-vertical"></div> : ''}
+            </>
+          )
+        }) 
+      }
     </nav>
   )
 }

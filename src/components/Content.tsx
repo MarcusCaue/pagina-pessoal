@@ -5,9 +5,7 @@ export default function Content() {
   return (
     <main className="border border-border w-full">
       <NavBar />
-      <section>
-        <Outlet />
-      </section>
+      <Outlet />
     </main>
   )
 }
