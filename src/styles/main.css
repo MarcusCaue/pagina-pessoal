@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.informacao {
+  @apply border border-border p-1;
+}
+
+.linha-vertical {
+  @apply border border-e border-border;
+}

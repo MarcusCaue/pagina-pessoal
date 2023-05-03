@@ -3,7 +3,7 @@ import NavBar from "./NavBar";
 
 export default function Content() {
   return (
-    <main>
+    <main className="border border-border w-full">
       <NavBar />
       <section>
         <Outlet />
