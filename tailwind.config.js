@@ -5,7 +5,7 @@ export default {
     extend: {
       colors: {
         "background": "#050A0F",
-        "border": "#CCCCCC",
+        "border": "#cccccc71",
         "emphasis": "#4AC9FF"
       },
       fontWeight: {

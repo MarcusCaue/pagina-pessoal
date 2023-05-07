@@ -10,7 +10,7 @@ export default function NavBar() {
   ]
 
   return (
-    <nav className="flex flex-row justify-evenly border-b rounded-t-lg">
+    <nav className="flex flex-row justify-evenly border-b border-b-border rounded-t-lg">
       { 
         links.map((link, key) => {
           return (

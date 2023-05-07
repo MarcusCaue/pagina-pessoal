@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .borda {
   @apply border border-border rounded-xl;
 }
