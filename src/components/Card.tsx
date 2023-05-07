@@ -1,6 +1,6 @@
 export default function Card() {
   return (
-    <aside className="border border-border flex flex-col gap-5 p-7 text-center w-1/5">
+    <aside className="borda flex flex-col gap-5 p-7 text-center w-1/5">
       <img src="https://github.com/MarcusCaue.png" alt="Minha foto de perfil do GitHub" className="rounded-full w-5/6 m-auto" />
       <span className="informacao">Nome</span>
       <span className="informacao">Email</span>

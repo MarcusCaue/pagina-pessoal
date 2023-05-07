@@ -3,7 +3,7 @@ import NavBar from "./NavBar";
 
 export default function Content() {
   return (
-    <main className="border border-border flex flex-col flex-1">
+    <main className="borda flex flex-col flex-1">
       <NavBar />
       <Outlet />
     </main>

@@ -2,12 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+
+.borda {
+  @apply border border-border rounded-xl;
+}
+
 .informacao {
-  @apply border border-border p-1;
+  @apply borda p-1;
 }
 
 .linha-vertical {
-  @apply border border-e border-border;
+  @apply borda border-e;
 }
 
 .destaque:hover {
