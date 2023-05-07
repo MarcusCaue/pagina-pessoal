@@ -1,11 +1,5 @@
-export interface Repositorio {
-   name: string,
-   html_url: string,
-   language: string,
-   created_at: string,
-   updated_at: string,
-   homepage: string
-}
+import { useContext } from "react";
+import { DataGithub } from "../../App";
 
 const languagesColors = new Map([
    ["typescript", { background: "#2F72BC", textColor: "#FFF" }],
@@ -17,11 +11,8 @@ const languagesColors = new Map([
    ["python", { background: "#2978A9", textColor: "#fd7"}]
 ]);
 
-interface RepositorioProps {
-   repos?: Repositorio[]
-}
-
-export default function Repositorios({repos}: RepositorioProps) {
+export default function Repositorios() {
+   const repos = useContext(DataGithub)
 
    return (
       <section className="overflow-auto">

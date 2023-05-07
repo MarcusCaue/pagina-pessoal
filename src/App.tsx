@@ -1,8 +1,27 @@
+import "./styles/main.css"
+import { api } from "./api/api"
+import { createContext, useEffect, useState } from "react"
 import Card from "./components/Card"
 import Content from "./components/Content"
-import "./styles/main.css"
+
+interface Repositorio {
+  name: string,
+  html_url: string,
+  language: string,
+  created_at: string,
+  updated_at: string,
+  homepage: string
+}
+
+export const DataGithub = createContext(Array<Repositorio>())
 
 export default function App() {
+  const [ repositories, setRepositories ] = useState(Array<Repositorio>())
+
+  useEffect(() => {
+    api.get("/MarcusCaue/repos").then(response => setRepositories(response.data))
+  }, [])
+
   return (
     <div id="fundo" className="min-h-screen bg-background font-inter text-white px-20 py-10">
       <div>
@@ -12,7 +31,9 @@ export default function App() {
 
         <main className="flex mt-4 gap-10" style={{maxHeight: "477.83px"}}>
           <Card />
-          <Content />
+          <DataGithub.Provider value={repositories}>
+            <Content />
+          </DataGithub.Provider>
         </main>
       </div>
     </div>
