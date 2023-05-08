@@ -15,6 +15,10 @@ export default {
       },
       fontFamily: {
         "inter": "'Inter', sans-serif"
+      },
+      width: {
+        "28%": "28%",
+        "45%": "45%",
       }
     },
   },

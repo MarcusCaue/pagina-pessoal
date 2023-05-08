@@ -7,7 +7,7 @@
 }
 
 .informacao {
-  @apply borda p-1;
+  @apply borda p-2 flex items-center justify-center gap-2 text-center;
 }
 
 .linha-vertical {

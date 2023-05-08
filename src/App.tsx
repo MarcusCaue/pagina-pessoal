@@ -30,7 +30,7 @@ export default function App() {
           <h1 className="text-emphasis font-600"> marcus_caue.dev </h1>
         </header>
 
-        <main className="flex mt-4 gap-10" style={{maxHeight: "477.83px"}}>
+        <main className="flex mt-4 gap-5" style={{maxHeight: "477.83px"}}>
           <Card />
           <DataGithub.Provider value={repositories}>
             <Content />
