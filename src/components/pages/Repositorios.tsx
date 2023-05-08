@@ -23,7 +23,12 @@ function dateFormat(data: Date) {
 }
 
 export default function Repositorios() {
-   const repos = useContext(DataGithub)
+   const repos = useContext(DataGithub).sort(repo => {
+      if (repo.stargazers_count !== 0) {
+         return -1
+      }
+      return 1
+   })
 
    return (
       <section className="overflow-auto">

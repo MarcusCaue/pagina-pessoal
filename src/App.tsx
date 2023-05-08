@@ -10,7 +10,8 @@ interface Repositorio {
   language: string,
   created_at: string,
   updated_at: string,
-  homepage: string
+  homepage: string,
+  stargazers_count: number
 }
 
 export const DataGithub = createContext(Array<Repositorio>())
