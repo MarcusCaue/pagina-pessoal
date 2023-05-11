@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { DataGithub } from "../../App";
+import { Link } from "react-router-dom";
 
 const languagesColors = new Map([
    ["typescript", { background: "#2F72BC", textColor: "#FFF" }],
@@ -41,7 +42,9 @@ export default function Repositorios() {
                return (
                   <>
                   <section key={key} className="px-10 py-5">
-                     <h1 className="text-emphasis text-xl"> {repo.name} </h1>
+                     <h1 className="text-emphasis text-xl hover:underline"> 
+                        <Link to={`/repo/${repo.name}/about`}> {repo.name} </Link> 
+                     </h1>
 
                      <div id="informacoes" className="flex justify-between">
                         <div id="links" className="flex flex-col justify-center gap-5">

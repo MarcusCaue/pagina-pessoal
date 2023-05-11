@@ -5,6 +5,7 @@ import Experiencias from "../components/pages/Experiencias"
 import Formacao from "../components/pages/Formacao"
 import Perfil from "../components/pages/Perfil"
 import Repositorios from "../components/pages/Repositorios"
+import About from "../components/About"
 
 export const router = createBrowserRouter([
   {
@@ -16,6 +17,7 @@ export const router = createBrowserRouter([
       { path: "/formacao", element: <Formacao />, },
       { path: "/contatos", element: <Contatos />, },
       { path: "/experiencias", element: <Experiencias />, },
+      { path: "/repo/:nameRepo/about", element: <About />, },
     ]
   }
 ])
