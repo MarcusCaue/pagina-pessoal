@@ -1,6 +1,8 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { api } from "../api/api";
+import converter from "../tools/converter_markdown_html";
+import HTMLReactParser from "html-react-parser"
 
 export default function About() {
   const { nameRepo } = useParams()
@@ -13,13 +15,16 @@ export default function About() {
       .then(archive => archive.download_url)
       .then(download_url => {
         api.get(download_url)
-          .then(response => setReadme(response.data))
+          .then(response => {
+            const readmeHtml = converter.makeHtml(response.data)
+            setReadme(readmeHtml)
+          })
       })
-  }, [])
-
+    }, [])
+  
   return (
     <div>
-      Jonas
+      { HTMLReactParser(readme) }
     </div>
   )
 }
