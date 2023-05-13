@@ -15,7 +15,7 @@ export default function NavBar() {
         links.map((link, key) => {
           return (
             <>
-              <NavLink  className="link destaque p-2" to={link.path}> {link.name} </NavLink>
+              <NavLink className="link destaque p-2" to={link.path}> {link.name} </NavLink>
               { key !== links.length - 1 ? <div className="linha-vertical"></div> : ''}
             </>
           )
