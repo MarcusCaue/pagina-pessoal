@@ -16,7 +16,7 @@ export default function Formacao() {
           Clique{" "}
           <Link 
             className="text-blue-400 destaque" 
-            to="/documento/teste" 
+            to="/documento/tec-informatica-ifpb-cg" 
             state={{path: "/src/archives/certificado-conclusao-ifpb-tec-informatica.pdf"}}>
               aqui
           </Link>
