@@ -30,23 +30,22 @@ interface Archive {
   download_url: string
 }
 
+
 export default function About() {
   const { nameRepo } = useParams()
   const [ readme, setReadme ] = useState("")
+  
+  async function getReadmeOfRepository(url: string) {
+    const response = await api.get(url)
+    const archives = response.data
+    const archive = archives.find((arch : Archive) => arch.name === "README.md")
+    const download_url = archive.download_url
+    const responseOfDowloadUrlRequest = await api.get(download_url)
+    const readmeHtml = converter.makeHtml(responseOfDowloadUrlRequest.data)
+    setReadme(readmeHtml)
+  }
 
-  useEffect(() => {
-    api.get(`https://api.github.com/repos/MarcusCaue/${nameRepo}/contents/`)
-      .then(response => {console.log(response.data); return response.data })
-      .then(archives => archives.find((arch : Archive) => arch.name === "README.md"))
-      .then(archive => archive.download_url)
-      .then(download_url => {
-        api.get(download_url)
-          .then(response => {
-            const readmeHtml = converter.makeHtml(response.data)
-            setReadme(readmeHtml)
-          })
-      })
-    }, [])
+  useEffect(() => { getReadmeOfRepository(`https://api.github.com/repos/MarcusCaue/${nameRepo}/contents/`) }, [])
   
   return (
     <div className="px-10 py-5">
