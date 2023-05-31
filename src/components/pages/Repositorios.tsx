@@ -40,47 +40,47 @@ export default function Repositorios() {
                const dataLastUpdate = new Date(repo.updated_at)
 
                return (
-                  <>
-                  <section key={key} className="px-10 py-5">
-                     <h1 className="text-emphasis text-xl hover:underline"> 
-                        <Link to={`/repo/${repo.name}/about`}> {repo.name} </Link> 
-                     </h1>
+                  <div key={key}>
+                     <section className="px-10 py-5">
+                        <h1 className="text-emphasis text-xl hover:underline"> 
+                           <Link to={`/repo/${repo.name}/about`}> {repo.name} </Link> 
+                        </h1>
 
-                     <div id="informacoes" className="flex justify-between">
-                        <div id="links" className="flex flex-col justify-center gap-5">
-                           <span>
-                              Acesse os arquivos do repositório clicando <a href={repo.html_url} target="_blank" className="text-emphasis destaque"> aqui </a>
-                           </span>
-                           {
-                              repo.homepage
-                              &&
-                              <span> Site em Produção:
-                                 <a href={repo.homepage} target="_blank" className="text-blue-400 destaque"> {repo.homepage.substring(8)} </a>
+                        <div id="informacoes" className="flex justify-between">
+                           <div id="links" className="flex flex-col justify-center gap-5">
+                              <span>
+                                 Acesse os arquivos do repositório clicando <a href={repo.html_url} target="_blank" className="text-emphasis destaque"> aqui </a>
                               </span>
-                           }
-                        </div>
+                              {
+                                 repo.homepage
+                                 &&
+                                 <span> Site em Produção:
+                                    <a href={repo.homepage} target="_blank" className="text-blue-400 destaque"> {repo.homepage.substring(8)} </a>
+                                 </span>
+                              }
+                           </div>
 
-                        <div id="outras_informacoes" className="flex flex-col gap-5">
-                           <span> <span className="text-emphasis">Data de criação</span>: {dateFormat(dataCriacao)} </span>
-                           <span> <span className="text-emphasis">Última atualização</span>: {dateFormat(dataLastUpdate)} </span>
-                           {
-                              principalLinguagem
-                              &&
-                              <div> 
-                                 <span className="text-emphasis">Principal linguagem</span>:
-                                 <span
-                                    className="ms-1 p-1 rounded-lg"
-                                    style={{
-                                       backgroundColor: languagesColors.get(principalLinguagem)?.background,
-                                       color: languagesColors.get(principalLinguagem)?.textColor
-                                    }}>{repo.language}</span>
-                              </div>
-                           }
+                           <div id="outras_informacoes" className="flex flex-col gap-5">
+                              <span> <span className="text-emphasis">Data de criação</span>: {dateFormat(dataCriacao)} </span>
+                              <span> <span className="text-emphasis">Última atualização</span>: {dateFormat(dataLastUpdate)} </span>
+                              {
+                                 principalLinguagem
+                                 &&
+                                 <div> 
+                                    <span className="text-emphasis">Principal linguagem</span>:
+                                    <span
+                                       className="ms-1 p-1 rounded-lg"
+                                       style={{
+                                          backgroundColor: languagesColors.get(principalLinguagem)?.background,
+                                          color: languagesColors.get(principalLinguagem)?.textColor
+                                       }}>{repo.language}</span>
+                                 </div>
+                              }
+                           </div>
                         </div>
-                     </div>
-                  </section>
-                  <hr className="my-5 border-border" />
-                  </>
+                     </section>
+                     { key !== repos.length - 1 ? <hr className="my-5 border-border" /> : ''}
+                  </div>
                )
             })
          }

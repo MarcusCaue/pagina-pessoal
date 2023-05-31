@@ -6,6 +6,7 @@ import Formacao from "../components/pages/Formacao"
 import Perfil from "../components/pages/Perfil"
 import Repositorios from "../components/pages/Repositorios"
 import About from "../components/About"
+import Documento from "../components/Documento"
 
 export const router = createBrowserRouter([
   {
@@ -19,5 +20,9 @@ export const router = createBrowserRouter([
       { path: "/experiencias", element: <Experiencias />, },
       { path: "/repo/:nameRepo/about", element: <About />, },
     ]
+  },
+  { 
+    path: "/documento/:nameDocument", 
+    element: <Documento /> 
   }
 ])
