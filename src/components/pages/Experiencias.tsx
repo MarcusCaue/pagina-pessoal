@@ -1,25 +1,7 @@
 import { ExperienceProps, Exp } from "../Exp";
+import * as archives from "../../archives/archives.json"
 
-const experiences: ExperienceProps[] = [
-  {
-    title: "Participação na Olimpíada Brasileira de Informática - 2022",
-    institute: "Sociedade Brasileira de Computação",
-    date: "2022",
-    documentPath: "/src/archives/obi_2022.pdf"
-  },
-  {
-    title: "Participação na Olimpíada Brasileira de Informática - 2021",
-    institute: "Sociedade Brasileira de Computação",
-    date: "2021",
-    documentPath: "/src/archives/obi_2021.pdf"
-  },
-  {
-    title: "Participação na Olimpíada Paraibana de Informática - 2022",
-    institute: "Universidade Federal de Campina Grande",
-    date: "09/12/2022",
-    documentPath: "/src/archives/opi_2022.pdf"
-  }
-]
+const experiences: ExperienceProps[] = archives.documents
 
 export default function Experiencias() {
   return (
@@ -27,9 +9,8 @@ export default function Experiencias() {
       {
         experiences.map((exp, key) => {
           return (
-            <div>
+            <div key={key}>
               <Exp 
-                key={key}
                 title={exp.title}
                 institute={exp.institute}
                 date={exp.date}
