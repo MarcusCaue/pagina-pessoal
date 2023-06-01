@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 export default function NavBar() {
   const links = [
     { name: "Repositórios", path: "/" }, 
-    { name: "Formação", path: "/formacao" }, 
     { name: "Perfil", path: "/perfil" }, 
     { name: "Experiências", path: "/experiencias" }, 
     { name: "Contatos", path: "contatos" }
