@@ -6,7 +6,7 @@ function FeedbackError() {
       <p className="text-3xl w-3/4 text-center leading-[1.5em]">
         Houve algum erro no carregamento do documento. <br />
         Tente novamente mais tarde. <br />
-        Clique <Link className="text-blue-400 destaque" to="/formacao">aqui</Link> para voltar ao site.
+        Clique <Link className="text-blue-400 destaque" to="/experiencias">aqui</Link> para voltar ao site.
       </p>
     </div>
   )
