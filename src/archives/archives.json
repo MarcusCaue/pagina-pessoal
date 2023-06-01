@@ -2,18 +2,21 @@
   "documents": [
     {
       "title": "Participação na Olimpíada Brasileira de Informática - 2022",
+      "titleUrl": "obi-2022",
       "institute": "Sociedade Brasileira de Computação",
       "date": "2022",
       "documentPath": "/src/archives/obi_2022.pdf"
     },
     {
       "title": "Participação na Olimpíada Brasileira de Informática - 2021",
+      "titleUrl": "obi-2021",
       "institute": "Sociedade Brasileira de Computação",
       "date": "2021",
       "documentPath": "/src/archives/obi_2021.pdf"
     },
     {
       "title": "Participação na Olimpíada Paraibana de Informática - 2022",
+      "titleUrl": "opi-2021",
       "institute": "Universidade Federal de Campina Grande",
       "date": "2022",
       "documentPath": "/src/archives/opi_2022.pdf"

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 export interface ExperienceProps {
   title: string,
+  titleUrl: string,
   institute?: string,
   date: string,
   documentPath: string
@@ -26,7 +27,7 @@ export function Exp(props: ExperienceProps) {
           Clique{" "}
           <Link
             className="text-blue-400 destaque"
-            to="/documento/tec-informatica-ifpb-cg"
+            to={`/documento/${props.titleUrl}`}
             state={{ path: props.documentPath }}>
             aqui
           </Link>
