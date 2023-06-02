@@ -12,7 +12,6 @@ export default function Experiencias() {
             <div key={key}>
               <Exp 
                 title={exp.title}
-                titleUrl={exp.titleUrl}
                 institute={exp.institute}
                 date={exp.date}
                 documentPath={exp.documentPath}

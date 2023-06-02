@@ -5,7 +5,6 @@ import Experiencias from "../components/pages/Experiencias"
 import Perfil from "../components/pages/Perfil"
 import Repositorios from "../components/pages/Repositorios"
 import About from "../components/About"
-import Documento from "../components/Documento"
 
 export const router = createBrowserRouter([
   {
@@ -19,8 +18,4 @@ export const router = createBrowserRouter([
       { path: "/repo/:nameRepo/about", element: <About />, },
     ]
   },
-  { 
-    path: "/documento/:nameDocument", 
-    element: <Documento /> 
-  }
 ])
