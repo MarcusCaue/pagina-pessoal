@@ -16,7 +16,7 @@ export default function Experiencias() {
                 date={exp.date}
                 documentPath={exp.documentPath}
               />
-              { key !== experiences.length - 1 ? <hr className="my-5 border-border" /> : '' }
+              { key !== experiences.length - 1 ? <hr className="my-5 border-border-page" /> : '' }
             </div>
           )
         })

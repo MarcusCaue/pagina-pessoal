@@ -1,56 +1,54 @@
 import { useContext } from "react";
 import { DataGithub } from "../../App";
-import { Link } from "react-router-dom";
+import { Link }       from "react-router-dom";
 
 const languagesColors = new Map([
    ["typescript", { background: "#2F72BC", textColor: "#FFF" }],
+   ["html",       { background: "#D84924", textColor: "#FFF" }],
+   ["css",        { background: "#2449D8", textColor: "#FFF" }],
+   ["java",       { background: "#E01E23", textColor: "#FFF" }],
+   ["php",        { background: "#7175AA", textColor: "#000" }],
    ["javascript", { background: "#EAD41C", textColor: "#000" }],
-   ["html", { background: "#D84924", textColor: "#FFF" }],
-   ["css", { background: "#2449D8", textColor: "#FFF" }],
-   ["java", { background: "#E01E23", textColor: "#FFF" }],
-   ["php", { background: "#7175AA", textColor: "#000" }],
-   ["python", { background: "#2978A9", textColor: "#fd7" }]
-]);
+   ["python",     { background: "#2978A9", textColor: "#fd7" }]
+])
 
-export function dateFormat(data: Date) {
-   const dia = data.getDate().toString().padStart(2, "0")
-   const mes = (data.getMonth() + 1).toString().padStart(2, "0")
-   const ano = data.getFullYear()
-   const horas = data.getHours().toString().padStart(2, "0")
-   const minutos = data.getMinutes().toString().padStart(2, "0")
+function dateFormat(data: Date) {
+   const dia      = data.getDate().toString().padStart(2, "0")
+   const mes      = (data.getMonth() + 1).toString().padStart(2, "0")
+   const ano      = data.getFullYear()
+   const horas    = data.getHours().toString().padStart(2, "0")
+   const minutos  = data.getMinutes().toString().padStart(2, "0")
    const segundos = data.getSeconds().toString().padStart(2, "0")
 
    return `${dia}/${mes}/${ano} - ${horas}:${minutos}:${segundos}`
 }
 
 export default function Repositorios() {
-   const repos = useContext(DataGithub).sort(repo => {
-      if (repo.stargazers_count !== 0) {
-         return -1
-      }
-      return 1
-   })
+   // Ordenando os repositórios com base na quantidade de estrelas que eles têm
+   const repos = useContext(DataGithub).sort(repo => repo.stargazers_count !== 0 ? -1 : 1)
 
    return (
       <section className="overflow-auto">
          {
             repos?.map((repo, key) => {
                const principalLinguagem = repo.language !== null ? repo.language.toLowerCase() : ""
-               const dataCriacao = new Date(repo.created_at)
+               const dataCriacao    = new Date(repo.created_at)
                const dataLastUpdate = new Date(repo.updated_at)
 
                return (
                   <div key={key}>
                      <section className="px-10 py-5">
-                        <h1 className="text-emphasis text-xl hover:underline"> 
+                        <h1 className="text-emphasis-page text-xl hover:underline"> 
                            <Link to={`/repo/${repo.name}/about`}> {repo.name} </Link> 
                         </h1>
 
                         <div id="informacoes" className="flex justify-between">
                            <div id="links" className="flex flex-col justify-center gap-5">
+                              {/* Acessando os arquivos do repositório */}
                               <span>
-                                 Acesse os arquivos do repositório clicando <a href={repo.html_url} target="_blank" className="text-emphasis destaque"> aqui </a>
+                                 Acesse os arquivos do repositório clicando <a href={repo.html_url} target="_blank" className="text-emphasis-page destaque"> aqui </a>
                               </span>
+                              {/* Acessando um projeto web hospedado */}
                               {
                                  repo.homepage
                                  &&
@@ -61,13 +59,13 @@ export default function Repositorios() {
                            </div>
 
                            <div id="outras_informacoes" className="flex flex-col gap-5">
-                              <span> <span className="text-emphasis">Data de criação</span>: {dateFormat(dataCriacao)} </span>
-                              <span> <span className="text-emphasis">Última atualização</span>: {dateFormat(dataLastUpdate)} </span>
+                              <span> <span className="text-emphasis-page">Data de criação</span>:   {dateFormat(dataCriacao)} </span>
+                              <span> <span className="text-emphasis-page">Última atualização</span>: {dateFormat(dataLastUpdate)} </span>
                               {
                                  principalLinguagem
                                  &&
                                  <div> 
-                                    <span className="text-emphasis">Principal linguagem</span>:
+                                    <span className="text-emphasis-page">Principal linguagem</span>:
                                     <span
                                        className="ms-1 p-1 rounded-lg"
                                        style={{
@@ -79,7 +77,7 @@ export default function Repositorios() {
                            </div>
                         </div>
                      </section>
-                     { key !== repos.length - 1 ? <hr className="my-5 border-border" /> : ''}
+                     { key !== repos.length - 1 ? <hr className="my-5 border-border-page" /> : ''}
                   </div>
                )
             })

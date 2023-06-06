@@ -1,8 +1,9 @@
-import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { api } from "../api/api";
-import converter from "../tools/converter_markdown_html";
 import parse, { domToReact, HTMLReactParserOptions, Element } from "html-react-parser"
+import { useParams }           from "react-router-dom";
+import { useEffect, useState } from "react";
+import { api }                 from "../api/api";
+import converter               from "../tools/converter_markdown_html";
+import { Archive }             from "../interfaces/Archive";
 
 // Configurando o renderizador de texto HTML 
 const options : HTMLReactParserOptions = {
@@ -13,11 +14,11 @@ const options : HTMLReactParserOptions = {
     if (element.attribs ) {
       switch(element.name) {
         case "h1":
-          return <h1 className="text-emphasis text-2xl mb-5"> {renderedElement} </h1>
+          return <h1 className="text-emphasis-page text-2xl mb-5"> {renderedElement} </h1>
         case "p":
           return <p className="my-3"> - {renderedElement} </p>
         case "ul":
-          return <ul className="list-disc pl-10 text-emphasis"> {renderedElement} </ul>
+          return <ul className="list-disc pl-10 text-emphasis-page"> {renderedElement} </ul>
         case "li":
           return <li> <span className="text-white"> {renderedElement} </span> </li>
       }
@@ -25,10 +26,7 @@ const options : HTMLReactParserOptions = {
   }
 }
 
-interface Archive {
-  name: string,
-  download_url: string
-}
+
 
 
 export default function About() {

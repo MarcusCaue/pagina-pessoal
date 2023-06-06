@@ -1,25 +1,16 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./src/**/*.{jsx,html,tsx}"],
+  content: ["./src/**/*.{html,tsx}"],
   theme: {
     extend: {
       colors: {
-        "background": "#050A0F",
-        "border": "#cccccc71",
-        "emphasis": "#4AC9FF"
-      },
-      fontWeight: {
-        "500": "500",
-        "600": "600",
-        "900": "900",
+        "background-page": "#050A0F",
+        "border-page": "#cccccc71",
+        "emphasis-page": "#4AC9FF"
       },
       fontFamily: {
         "inter": "'Inter', sans-serif"
       },
-      width: {
-        "28%": "28%",
-        "45%": "45%",
-      }
     },
   },
   plugins: [],

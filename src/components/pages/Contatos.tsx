@@ -41,7 +41,7 @@ export default function Contatos() {
                 <span>
                   <span className="mx-2">-</span> 
                   <span>{contact.local}: </span> 
-                  <a href={contact.url} target="_blank" className="destaque text-emphasis">{contact.perfil}</a>
+                  <a href={contact.url} target="_blank" className="destaque text-emphasis-page">{contact.perfil}</a>
                 </span>
               </li>
             )
