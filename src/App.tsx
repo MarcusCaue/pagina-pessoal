@@ -17,13 +17,13 @@ export default function App() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-background-page font-inter text-white px-20 py-10">
-      <div>
-        <header className="borda p-4 text-center">
+    <div className="bg-background-page font-inter text-white">
+      <div className="relative min-h-screen px-20 py-10">
+        <header className="borda flex items-center justify-center h-[7vh]">
           <h1 className="text-emphasis-page font-[600]"> marcus_caue.dev </h1>
         </header>
 
-        <main className="flex mt-4 gap-5 max-h-[480px]">
+        <main className="flex mt-4 gap-5 h-[80vh]">
           <Card />
           {/* Enviando o contexto para os componentes nas outras rotas */}
           <DataGithub.Provider value={repositories}>

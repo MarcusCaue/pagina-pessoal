@@ -1,7 +1,7 @@
-import { ExperienceProps, Exp } from "../Exp";
 import * as archives from "../../archives/archives.json"
+import { Exp }       from "../Exp";
 
-const experiences: ExperienceProps[] = archives.documents
+const experiences = archives.documents
 
 export default function Experiencias() {
   return (

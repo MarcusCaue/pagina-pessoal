@@ -34,7 +34,7 @@ export default function Card() {
       </span>
 
       <span className="informacao">
-        <GraduationCap size={sizeIcon} /> Técnico em Informática - IFPB-CG
+        <GraduationCap size={sizeIcon} /> Téc. em Informática - IFPB-CG
       </span>
 
       <span className="informacao">

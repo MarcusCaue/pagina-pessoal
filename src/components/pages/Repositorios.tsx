@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { DataGithub } from "../../App";
 import { Link }       from "react-router-dom";
+import { DataGithub } from "../../App";
 
 const languagesColors = new Map([
    ["typescript", { background: "#2F72BC", textColor: "#FFF" }],
@@ -38,10 +38,12 @@ export default function Repositorios() {
                return (
                   <div key={key}>
                      <section className="px-10 py-5">
-                        <h1 className="text-emphasis-page text-xl hover:underline"> 
+                        {/* Nome do repositório */}
+                        <h1 className="text-emphasis-page text-xl hover:underline mb-2"> 
                            <Link to={`/repo/${repo.name}/about`}> {repo.name} </Link> 
                         </h1>
 
+                        {/* Informações do repositório */}
                         <div id="informacoes" className="flex justify-between">
                            <div id="links" className="flex flex-col justify-center gap-5">
                               {/* Acessando os arquivos do repositório */}
@@ -50,8 +52,7 @@ export default function Repositorios() {
                               </span>
                               {/* Acessando um projeto web hospedado */}
                               {
-                                 repo.homepage
-                                 &&
+                                 repo.homepage &&
                                  <span> Site em Produção:
                                     <a href={repo.homepage} target="_blank" className="text-blue-400 destaque"> {repo.homepage.substring(8)} </a>
                                  </span>
@@ -59,11 +60,14 @@ export default function Repositorios() {
                            </div>
 
                            <div id="outras_informacoes" className="flex flex-col gap-5">
-                              <span> <span className="text-emphasis-page">Data de criação</span>:   {dateFormat(dataCriacao)} </span>
-                              <span> <span className="text-emphasis-page">Última atualização</span>: {dateFormat(dataLastUpdate)} </span>
+                              <div> 
+                                 <span className="text-emphasis-page">Data de criação</span>: {dateFormat(dataCriacao)} 
+                              </div>
+                              <div> 
+                                 <span className="text-emphasis-page">Última atualização</span>: {dateFormat(dataLastUpdate)} 
+                              </div>
                               {
-                                 principalLinguagem
-                                 &&
+                                 principalLinguagem &&
                                  <div> 
                                     <span className="text-emphasis-page">Principal linguagem</span>:
                                     <span

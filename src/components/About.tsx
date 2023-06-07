@@ -2,7 +2,7 @@ import parse, { domToReact, HTMLReactParserOptions, Element } from "html-react-p
 import { useParams }           from "react-router-dom";
 import { useEffect, useState } from "react";
 import { api }                 from "../api/api";
-import converter               from "../tools/converter_markdown_html";
+import converter               from "../tools/changeMarkdownHtml";
 import { Archive }             from "../interfaces/Archive";
 
 // Configurando o renderizador de texto HTML 
