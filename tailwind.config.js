@@ -3,6 +3,9 @@ export default {
   content: ["./src/**/*.{html,tsx}"],
   theme: {
     extend: {
+      screens: {
+        "sm": {"max": "481px"}
+      },
       colors: {
         "background-page": "#050A0F",
         "border-page": "#cccccc71",
