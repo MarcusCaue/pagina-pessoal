@@ -1,12 +1,13 @@
 import parse, { domToReact, HTMLReactParserOptions, Element } from "html-react-parser"
-import { useParams }           from "react-router-dom";
+import { useParams } from "react-router-dom"
+import { Spin } from "react-cssfx-loading" // from https://github.com/napthedev/react-cssfx-loading by napthedev
 import { useEffect, useState } from "react";
-import { api }                 from "../api";
-import converter               from "../tools/changeMarkdownHtml";
-import { Archive }             from "../interfaces";
+import { api } from "../api";
+import converter from "../tools/changeMarkdownHtml";
+import { Archive } from "../interfaces";
 
 // Configurando o renderizador de texto HTML 
-const options : HTMLReactParserOptions = {
+const options: HTMLReactParserOptions = {
   replace: domNode => {
     const element = domNode as Element
     const renderedElement = element.children && domToReact(element.children, options)
@@ -17,8 +18,8 @@ const options : HTMLReactParserOptions = {
       ul: <ul className="list-disc pl-10 text-emphasis-page"> {renderedElement} </ul>,
       li: <li> <span className="text-white"> {renderedElement} </span> </li>
     }
-  
-    if (element.attribs ) {
+
+    if (element.attribs) {
       return tags[element.name as keyof typeof tags]
     }
   }
@@ -26,12 +27,13 @@ const options : HTMLReactParserOptions = {
 
 export default function About() {
   const { nameRepo } = useParams()
-  const [ readme, setReadme ] = useState("")
-  
+  const [readme, setReadme] = useState("")
+  const [loading, setLoading] = useState(true)
+
   async function getReadmeOfRepository(url: string) {
     const response = await api.get(url)
     const archives = response.data
-    const archive = archives.find((arch : Archive) => arch.name === "README.md")
+    const archive = archives.find((arch: Archive) => arch.name === "README.md")
     let readmeContent
 
     if (archive !== undefined) {
@@ -44,15 +46,23 @@ export default function About() {
 
     const readmeHtml = converter.makeHtml(readmeContent)
     setReadme(readmeHtml)
+    setLoading(false)
   }
 
   useEffect(() => { getReadmeOfRepository(`https://api.github.com/repos/MarcusCaue/${nameRepo}/contents/`) }, [])
-  
-  console.log(readme)
 
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-full">
+        <Spin color="#4AC9FF" />
+      </div>
+    )
+  }
+  
   return (
     <section className="section-padding overflow-auto">
       { parse(readme, options) }
     </section>
   )
+  
 }

@@ -1,17 +1,18 @@
 import "./styles/main.css"
 import "./styles/scrollbar.css"
+
 import { createContext, useEffect, useState } from "react"
-import { api }         from "./api"
+import { api } from "./api"
 import { Repositorio } from "./interfaces"
-import Card            from "./components/Card"
-import Content         from "./components/Content"
+import Card from "./components/Card"
+import Content from "./components/Content"
 
 // Criação de um contexto para que a página só carregue os repositórios uma vez e 
 // Passe esses dados para os componentes filhos
 export const UserRepositories = createContext(Array<Repositorio>())
 
 export default function App() {
-  const [ repositories, setRepositories ] = useState(Array<Repositorio>())
+  const [repositories, setRepositories] = useState(Array<Repositorio>())
 
   // Buscando os repositórios públicos da API do Github
   useEffect(() => {
@@ -34,4 +35,5 @@ export default function App() {
       </div>
     </div>
   )
+
 }
