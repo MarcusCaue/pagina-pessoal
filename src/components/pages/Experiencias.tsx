@@ -5,7 +5,7 @@ const experiences = archives.documents
 
 export default function Experiencias() {
   return (
-    <section className="px-10 py-5 overflow-auto">
+    <section className="section-padding overflow-auto">
       {
         experiences.map((exp, key) => {
           return (
@@ -16,7 +16,7 @@ export default function Experiencias() {
                 date={exp.date}
                 documentPath={exp.documentPath}
               />
-              { key !== experiences.length - 1 ? <hr className="my-5 border-border-page" /> : '' }
+              { key !== experiences.length - 1 && <hr className="my-5 border-border-page" /> }
             </div>
           )
         })

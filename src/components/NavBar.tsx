@@ -1,9 +1,7 @@
 import { ReactNode } from "react";
 import { NavLink } from "react-router-dom";
 
-interface LinkProps { children: ReactNode }
-
-function Link({ children } : LinkProps) {
+function LinkWrapper({ children } : { children: ReactNode }) {
   return <> { children } </>
 }
 
@@ -20,10 +18,10 @@ export default function NavBar() {
       { 
         links.map((link, key) => {
           return (
-            <Link key={key}>
+            <LinkWrapper key={key}>
               <NavLink className="link destaque p-2" to={link.path}> {link.name} </NavLink>
-              { key !== links.length - 1 ? <div className="linha-vertical"></div> : ''}
-            </Link>
+              { key !== links.length - 1 && <div className="linha-vertical"></div> }
+            </LinkWrapper>
           )
         }) 
       }

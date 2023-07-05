@@ -31,7 +31,7 @@ const contacts = [
 
 export default function Contatos() {
   return (
-    <section className="px-10 py-5 flex flex-col gap-3">
+    <section className="section-padding flex flex-col gap-3">
       <ul className="list-none flex flex-col gap-3">
         {
           contacts.map((contact, key) => {

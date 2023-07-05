@@ -1,7 +1,7 @@
 import { Envelope, GithubLogo, GlobeHemisphereWest, GraduationCap, User } from "@phosphor-icons/react"
 import { useEffect, useState }   from "react"
-import { User as UserInterface } from "../interfaces/User"
-import { api }                   from "../api/api"
+import { User as UserInterface } from "../interfaces"
+import { api }                   from "../api"
 
 export default function Card() {
   const [dataUser, setDataUser] = useState<UserInterface>()

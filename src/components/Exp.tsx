@@ -1,4 +1,9 @@
-import { ExperienceProps } from "../interfaces/ExperienceProps";
+interface ExperienceProps {
+  title: string,
+  institute?: string,
+  date: string,
+  documentPath: string
+}
 
 export function Exp(props: ExperienceProps) {
   return (
@@ -13,7 +18,7 @@ export function Exp(props: ExperienceProps) {
           </div>
         }
         <div>
-          <span className="text-emphasis-page">Data de conclusão</span>: { props.date }
+          <span className="text-emphasis-page">Período de tempo</span>: { props.date }
         </div>
         <div>
           Clique{" "}

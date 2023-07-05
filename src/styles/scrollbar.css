@@ -1,0 +1,15 @@
+/* Estilizações da Scrollbar */
+::-webkit-scrollbar { 
+  width: 0.75rem;
+  background-color: #0a0e1272;
+  border-radius: 0.75rem;
+}
+
+::-webkit-scrollbar-button { 
+  display: none;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 0.75rem;
+  background-color: #1f1f21; 
+}

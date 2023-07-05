@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Link }       from "react-router-dom";
-import { DataGithub } from "../../App";
+import { UserRepositories } from "../../App";
 
 const languagesColors = new Map([
    ["typescript", { background: "#2F72BC", textColor: "#FFF" }],
@@ -20,24 +20,24 @@ function dateFormat(data: Date) {
    const minutos  = data.getMinutes().toString().padStart(2, "0")
    const segundos = data.getSeconds().toString().padStart(2, "0")
 
-   return `${dia}/${mes}/${ano} - ${horas}:${minutos}:${segundos}`
+   return `${dia}/${mes}/${ano} - ${horas}:${minutos}`
 }
 
 export default function Repositorios() {
    // Ordenando os repositórios com base na quantidade de estrelas que eles têm
-   const repos = useContext(DataGithub).sort(repo => repo.stargazers_count !== 0 ? -1 : 1)
+   const repos = useContext(UserRepositories).sort(repo => repo.stargazers_count !== 0 ? -1 : 1)
 
    return (
       <section className="overflow-auto">
          {
             repos?.map((repo, key) => {
                const principalLinguagem = repo.language !== null ? repo.language.toLowerCase() : ""
-               const dataCriacao    = new Date(repo.created_at)
-               const dataLastUpdate = new Date(repo.updated_at)
+               const dataCriacao        = new Date(repo.created_at)
+               const dataLastUpdate     = new Date(repo.updated_at)
 
                return (
                   <div key={key}>
-                     <section className="px-10 py-5">
+                     <section className="section-padding">
                         {/* Nome do repositório */}
                         <h1 className="text-emphasis-page text-xl hover:underline mb-2"> 
                            <Link to={`/repo/${repo.name}/about`}> {repo.name} </Link> 
@@ -46,11 +46,11 @@ export default function Repositorios() {
                         {/* Informações do repositório */}
                         <div id="informacoes" className="flex justify-between">
                            <div id="links" className="flex flex-col justify-center gap-5">
-                              {/* Acessando os arquivos do repositório */}
+                              {/* Link para acessar os arquivos do repositório */}
                               <span>
                                  Acesse os arquivos do repositório clicando <a href={repo.html_url} target="_blank" className="text-emphasis-page destaque"> aqui </a>
                               </span>
-                              {/* Acessando um projeto web hospedado */}
+                              {/* Link para acessar um projeto web hospedado */}
                               {
                                  repo.homepage &&
                                  <span> Site em Produção:
@@ -81,7 +81,7 @@ export default function Repositorios() {
                            </div>
                         </div>
                      </section>
-                     { key !== repos.length - 1 ? <hr className="my-5 border-border-page" /> : ''}
+                     { key !== repos.length - 1 && <hr className="my-5 border-border-page" /> }
                   </div>
                )
             })
