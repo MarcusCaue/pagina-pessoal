@@ -5,6 +5,7 @@
   border-radius: 0.75rem;
 }
 
+/* Removendo os botões da scrollbar padrão */
 ::-webkit-scrollbar-button { 
   display: none;
 }

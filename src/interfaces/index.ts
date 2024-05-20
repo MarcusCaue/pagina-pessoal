@@ -3,6 +3,7 @@ export interface Archive {
   download_url: string
 }
 
+// Alguns atributos de um repositório do Github
 export interface Repositorio {
   name: string,
   html_url: string,
